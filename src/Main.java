@@ -1,15 +1,33 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+            Worker[] worker = new Worker[100];
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+            int workerCount = 0;
+
+
+            // Workers
+            worker[workerCount++] = new Worker("Carol", 4230.00, 500.00);
+
+            double globalTotalSalary = 0.0;
+
+            System.out.println("EMPLOYEE SALARY REPORT");
+
+            // Loop through the populated space
+            for (int i = 0; i < workerCount; i++) {
+                Worker w =  worker[i];
+                double individualTotal = w.getTotalSalary();
+                globalTotalSalary += individualTotal;
+
+                System.out.println(
+                        "Name: " + w.getName() +
+                                " | Base: " + w.getBaseSalary() +
+                                " | Complement: " + w.getComplement() +
+                                " | Total: " + individualTotal
+                );
+
+            }
+            System.out.println("");
+            System.out.println("Global Total salary: $" + globalTotalSalary);
+
     }
 }
